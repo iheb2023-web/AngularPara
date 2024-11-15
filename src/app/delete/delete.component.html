@@ -1,0 +1,37 @@
+<!-- Votre composant Angular -->
+<div><br></div>
+<div class="container" class="background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card shadow mb-10">
+        <div class="card-body">
+            <h1>Supprimer un Produits</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                            <th>Utilisation</th>
+                            <th>Ingrédient</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let p of tab_pro">
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nom}}</td>
+                            <td>{{p.description}}</td>
+                            <td>{{p.prix}}</td>
+                            <td>{{p.utilisation}}</td>
+                            <td>{{p.ing?.noming}}</td>
+                            <td>
+                                <a class="btn btn-danger" (click)="suppEtudiant(p)"><img src="../assets/delete.png" height="32" width="32"></a>      
+                               </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

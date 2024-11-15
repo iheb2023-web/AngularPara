@@ -1,0 +1,53 @@
+<nav class="navbar navbar-dark bg-success fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="connecter"><img src="../../assets/images/logo1.png" alt="logo" width="50" height="50"> Parapharmacie ParaSanté</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="offcanvas offcanvas-end bg-success text-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">ParaSanté</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="home">Accueil</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="liste">liste Produits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="prodect">Affichage Client</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="admin/ajouter" *ngIf="authService.testerAdmin()==true">Ajouter Produits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="chercher">Rechercher Produits</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="authService.testerAdmin()==true">
+              Actions sur le Produit
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" routerLink="admin/update">Modification</a></li>
+              <li><a class="dropdown-item" routerLink="admin/delete">Suppression</a></li>
+            </ul>
+          </li>
+          <!-- Ajoutez les deux lignes suivantes ici -->
+          <li class="nav-item">
+            <a *ngIf="authService.isConnected" class="nav-link" (click)="authService.disconnect()" class=" text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Déconnexion</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="!authService.isConnected" class="nav-link" >Utilisateurs</a>
+          </li>
+          <!-- Fin des ajouts -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

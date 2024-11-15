@@ -1,0 +1,43 @@
+<div class="container mt-4" class="background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card">
+      <div class="card-header">
+        <h2>Modifier un Complément</h2>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col-md-2">
+              <label>ID</label>
+              <input readonly type="text" [(ngModel)]="produitsCourant.id" name="id" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label>Nom</label>
+              <input type="text" [(ngModel)]="produitsCourant.nom" name="nom" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label>Description</label>
+              <input type="text" [(ngModel)]="produitsCourant.description" name="description" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label>Prix</label>
+              <input type="text" [ngModel]="produitsCourant.prix" name="prix" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label>Utilisation</label>
+              <input type="text" [(ngModel)]="produitsCourant.utilisation" name="utilisation" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label>Ingrédient</label>
+              <select class="form-control form-control-lg" name="ingpid" [(ngModel)]="idMod" >
+                <option *ngFor="let i of ings" [value]="i.iding">{{i.noming!}}</option>
+            </select> 
+            </div>
+          </div>
+          <div class="mt-3">
+            <button type="submit" (click)="modifproduit()" class="btn btn-success">Modifier</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

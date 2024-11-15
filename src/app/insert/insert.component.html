@@ -1,0 +1,43 @@
+<div class="container" class="background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card shadow mb-4"> 
+    <div class="card-body">
+    <h2>Ajouter un produits</h2> 
+    <form>
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="id">Id</label>
+                <input type="number" [(ngModel)]="newproduit.id" name="id" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="nom">Nom</label>
+                <input type="text" [(ngModel)]="newproduit.nom" name="nom" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="description">Description</label>
+                <input type="text" [(ngModel)]="newproduit.description" name="description" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="prix">Prix</label>
+                <input type="number" [(ngModel)]="newproduit.prix" name="prix" class="form-control">
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="utilisation">Utilisation</label>
+                <input type="text" [(ngModel)]="newproduit.utilisation" name="utilisation" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>ingredient</label>
+                <select class="form-control form-control-lg" name="ingpid" [(ngModel)]="newid" >
+                    <option *ngFor="let i of ings" [value]="i.iding">{{i.noming}}</option>
+                </select> 
+            </div>
+        </div>
+        <br>
+        <div class="mt-8">
+            <button type="submit" (click)="ajouterEtudiant()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+
+    
+</div>
+</div>
+</div>

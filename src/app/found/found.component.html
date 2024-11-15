@@ -1,0 +1,63 @@
+<!-- Votre composant Angular -->
+<div class="container" class="background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card shadow mb-10">
+        <div class="card-body">
+            <h2>Chercher un produit</h2>
+            <div class="table-responsive">
+                <form name="f1">
+                    Choisir un critère de recherche :
+                    <select [(ngModel)]="critere" name="critere">
+                      <option value="nom">Par nom</option>
+                      <option value="groupe">Par ingrédient</option>
+                      <option value="prix">Par prix</option>
+                     
+                    </select>
+                  </form>
+                  
+
+    <div [ngSwitch]="critere">
+    <form name="f2" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2" *ngSwitchCase="'nom'">
+          <label>Nom à chercher </label>
+          <input type="text" class="form-control" name="nom" #nomEtu (keyup)="chercherParNom(nomEtu.value)">
+        </div>
+        <div class="form-group mx-sm-3 mb-2 mt-2" *ngSwitchCase="'prix'">
+            <label>prix </label>
+            <input type="number" class="form-control" name="prix" #prixEtu (keyup)="rechercheParprix(prixEtu.value)">
+          </div>
+      
+        <div class="form-group" *ngSwitchCase="'groupe'">
+          Groupe
+          <select class="form-control form-control-lg" name="grpid" [(ngModel)]="grpidRech" (change)="chercherParGroupe(grpidRech)">
+            <option value="0">Tous</option>
+            <option *ngFor="let gr of list_grp" [value]="gr.iding">{{ gr.noming }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                            <th>Utilisation</th>
+                            <th>Ingrédient</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let p of tab_pro">
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nom}}</td>
+                            <td>{{p.description}}</td>
+                            <td>{{p.prix}}</td>
+                            <td>{{p.utilisation}}</td>
+                            <td>{{p.ing?.noming}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
